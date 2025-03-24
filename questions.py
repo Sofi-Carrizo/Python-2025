@@ -1,5 +1,6 @@
 import sys
 import random
+
 # Preguntas para el juego
 questions = [
 "¿Qué función se usa para obtener la longitud de una cadena en Python?",
@@ -8,6 +9,7 @@ questions = [
 "¿Cuál de las siguientes expresiones es un comentario válido en Python?",
 "¿Cuál es el operador de comparación para verificar si dos valores son iguales?",
 ]
+
 # Respuestas posibles para cada pregunta, en el mismo orden que las preguntas
 answers = [
     ("size()", "len()", "length()", "count()"),
@@ -21,14 +23,20 @@ answers = [
     ),
     ("=", "==", "!=", "==="),
 ]
+
 # Índice de la respuesta correcta para cada pregunta, el mismo orden que las preguntas
 correct_answers_index = [1, 2, 0, 3, 1]
+
 # Se combina todo en una lista
 questions_list = list(zip(questions, answers, correct_answers_index))
+
+#Selecciona 3 preguntas sin repetir
 questions_to_ask = random.sample (questions_list, k=3)
 score = 0
+
 # El usuario deberá contestar 3 preguntas
 for questions, answer_options, correct_index in questions_to_ask:
+
     # Se muestra la pregunta y las respuestas posibles
     print(questions)
     for i, answer in enumerate(answer_options):
@@ -57,7 +65,7 @@ for questions, answer_options, correct_index in questions_to_ask:
         # Si el usuario no responde correctamente después de 2 intentos,
         #se muestra la respuesta correcta
         print("Incorrecto. La respuesta correcta es:")
-        print(answer_options [correct_index])
+        print(answer_options[correct_index])
     # Se imprime un blanco al final de la pregunta
     print()
 print(f"El puntaje final es: {score}")
