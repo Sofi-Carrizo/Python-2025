@@ -23,6 +23,7 @@ answers = [
 ]
 # Índice de la respuesta correcta para cada pregunta, el mismo orden que las preguntas
 correct_answers_index = [1, 2, 0, 3, 1]
+score = 0
 # El usuario deberá contestar 3 preguntas
 for _ in range(3):
     # Se selecciona una pregunta aleatoria
@@ -42,15 +43,20 @@ for _ in range(3):
             # Se verifica si la respuesta es correcta
             if user_answer == correct_answers_index[question_index]:
                 print("¡Correcto!")
+                score = score + 1
                 break
-            # Si el usuario no responde correctamente después de 2 intentos,
-            #se muestra la respuesta correcta
+            else:
+                print ("Incorrecto.")
+                score = score - 0.5
         else:
             print("Respuesta no valida.")
             sys.exit(1)
     else:
+        # Si el usuario no responde correctamente después de 2 intentos,
+        #se muestra la respuesta correcta
         print("Incorrecto. La respuesta correcta es:")
         print(answers[question_index]
         [correct_answers_index[question_index]])
     # Se imprime un blanco al final de la pregunta
     print()
+print(f"El puntaje final es: {score}")
