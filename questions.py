@@ -68,4 +68,7 @@ for questions, answer_options, correct_index in questions_to_ask:
         print(answer_options[correct_index])
     # Se imprime un blanco al final de la pregunta
     print()
+#Se asegura que el puntaje no sea negativo
+if score < 0:
+    score = 0
 print(f"El puntaje final es: {score}")
